@@ -46,6 +46,10 @@ https://github.com/bicouy0/ajax-chosen
       inputSelector = ".chzn-search > input"
       clickSelector = ".chzn-single"
 
+    #Add an empty option if required to make the search box appear in initial state
+    if !select.find('option').length
+      select.append('<option>')
+
     # initialize chosen
     select.chosen(defaultedOptions.chosenOptions)
 

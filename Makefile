@@ -1,5 +1,5 @@
 COFFEESCRIPT = coffee --lint
-GOOGCLOSURE  = google-closure
+UGLIFY  = uglifyjs
 
 all: lib/ajax-chosen.js lib/ajax-chosen.min.js
 
@@ -7,7 +7,7 @@ lib/%.js: src/%.coffee
 	$(COFFEESCRIPT) -o lib/ -c src/ 
 
 lib/%.min.js: lib/%.js
-	$(GOOGCLOSURE) --js $<  --js_output_file $@
+	$(UGLIFY) --output $@ $<
 
 clean:
 	@rm -f lib/*.js
